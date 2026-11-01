@@ -23,7 +23,7 @@
 .EXAMPLE
   .\New-LabScanShare.ps1 -AccountName 'LabScan' -FolderPath 'D:\LabScan' -ShareName 'LabScan'
 #>
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [ValidateNotNullOrEmpty()]
     [string]$AccountName = 'LabScan',
@@ -36,6 +36,10 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+if (-not $PSCmdlet.ShouldProcess($FolderPath, 'Create lab scan share')) {
+    return
+}
+
 
 if ($env:PROCESSOR_ARCHITEW6432 -eq 'AMD64') {
     $sysNative = Join-Path $env:WINDIR 'SysNative\WindowsPowerShell\v1.0\PowerShell.exe'

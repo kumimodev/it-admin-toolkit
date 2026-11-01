@@ -12,12 +12,19 @@
 .EXAMPLE
   .\Export-InstalledApps.ps1 -OutputPath "$env:USERPROFILE\Desktop\apps.csv"
 #>
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [string]$OutputPath = '.\installed-apps.csv'
 )
 
 $ErrorActionPreference = 'Stop'
+
+if (-not $PSCmdlet.ShouldProcess($OutputPath, 'Export installed apps CSV')) {
+    return
+}
+
+try {
+
 $rows = New-Object System.Collections.Generic.List[object]
 
 $uninstallRoots = @(
@@ -56,3 +63,8 @@ if ($dir -and -not (Test-Path -LiteralPath $dir)) {
 $rows | Sort-Object Name | Export-Csv -Path $OutputPath -NoTypeInformation -Encoding UTF8
 Write-Output "Wrote $($rows.Count) rows to $OutputPath"
 exit 0
+}
+catch {
+    Write-Error "Export failed: $($_.Exception.Message)"
+    exit 1
+}

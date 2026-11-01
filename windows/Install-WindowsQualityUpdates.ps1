@@ -20,12 +20,16 @@
 .EXAMPLE
   .\Install-WindowsQualityUpdates.ps1 -HardReboot
 #>
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [switch]$HardReboot
 )
 
 $ErrorActionPreference = 'Stop'
+if (-not $PSCmdlet.ShouldProcess('quality updates', 'Install Windows quality updates')) {
+    return
+}
+
 
 if ("$env:PROCESSOR_ARCHITEW6432" -ne 'ARM64') {
     $sysNative = Join-Path $env:WINDIR 'SysNative\WindowsPowerShell\v1.0\powershell.exe'

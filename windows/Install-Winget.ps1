@@ -10,10 +10,14 @@
 .EXAMPLE
   .\Install-Winget.ps1
 #>
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess = $true)]
 param()
 
 $ErrorActionPreference = 'Stop'
+if (-not $PSCmdlet.ShouldProcess('winget', 'Install winget from GitHub release')) {
+    return
+}
+
 $ProgressPreference = 'SilentlyContinue'
 
 if (Get-Command winget -ErrorAction SilentlyContinue) {

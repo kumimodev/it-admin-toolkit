@@ -2,6 +2,13 @@
 
 All notable changes to this project are listed here.
 
+## Script quality pass, 1 Nov 2026
+
+### Changed
+
+1. Added WhatIf support on scripts that change the device or write files.
+2. Tightened error handling on Winsock reset and the installed apps export.
+
 ## Copy update, 1 Nov 2026
 
 ### Changed

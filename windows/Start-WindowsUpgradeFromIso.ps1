@@ -17,7 +17,7 @@
 .EXAMPLE
   .\Start-WindowsUpgradeFromIso.ps1 -IsoPath 'D:\LabMedia\Win11.iso' -LogDirectory 'C:\LabLogs\WinUpgrade'
 #>
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [Parameter(Mandatory = $true)]
     [string]$IsoPath,
@@ -27,6 +27,10 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+if (-not $PSCmdlet.ShouldProcess($IsoPath, 'Start Windows upgrade from ISO')) {
+    return
+}
+
 
 if (-not (Test-Path -LiteralPath $IsoPath)) {
     throw "ISO not found: $IsoPath"

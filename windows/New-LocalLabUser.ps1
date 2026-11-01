@@ -17,13 +17,17 @@
 .EXAMPLE
   .\New-LocalLabUser.ps1 -UserName 'LabUser01'
 #>
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [ValidateNotNullOrEmpty()]
     [string]$UserName = 'LabLocalUser'
 )
 
 $ErrorActionPreference = 'Stop'
+if (-not $PSCmdlet.ShouldProcess($UserName, 'Create local lab user')) {
+    return
+}
+
 
 if ($env:PROCESSOR_ARCHITEW6432 -eq 'AMD64') {
     $sysNative = Join-Path $env:WINDIR 'SysNative\WindowsPowerShell\v1.0\PowerShell.exe'
