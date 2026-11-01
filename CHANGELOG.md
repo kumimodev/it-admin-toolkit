@@ -2,12 +2,18 @@
 
 All notable changes to this project are listed here.
 
+## Copy update, 1 Nov 2026
+
+### Changed
+
+1. Softened a couple of changelog lines that sounded a bit corporate.
+
 ## Version 0.2.0 (1 Nov 2026)
 
 ### Changed
 
-1. Quality pass for portfolio readiness. Scripts now use comment based help, Verb-Noun names, exit codes and SecureString or environment based secrets.
-2. Replaced thin one line wrappers with fewer solid helpers.
+1. Tidied the scripts for a cleaner public repo. They now use comment based help, Verb-Noun names, exit codes and SecureString or environment based secrets.
+2. Replaced thin one line wrappers with fewer proper helpers.
 3. Moved Adobe Reader inventory beside the other Windows helpers.
 4. Fixed ISO upgrade automatic variable misuse and quality update reboot exit codes.
 
