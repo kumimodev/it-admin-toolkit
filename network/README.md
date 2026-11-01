@@ -1,5 +1,8 @@
 # Network helpers
 
-Small scripts for DNS cache flush, Winsock reset and basic name resolution checks.
+| Script | Purpose |
+| --- | --- |
+| `Test-DnsAndConnectivity.ps1` | DNS and HTTPS checks, optional DNS cache flush |
+| `Reset-Winsock.ps1` | Winsock catalogue reset (reboot afterwards) |
 
-Use these on lab devices first. Winsock reset needs an elevated shell and a reboot afterwards.
+Run `Reset-Winsock.ps1` elevated on a lab device first.

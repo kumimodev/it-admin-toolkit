@@ -2,15 +2,26 @@
 
 All notable changes to this project are listed here.
 
+## Version 0.2.0 (1 Nov 2026)
+
+### Changed
+
+1. Quality pass for portfolio readiness. Scripts now use comment based help, Verb-Noun names, exit codes and SecureString or environment based secrets.
+2. Replaced thin one line wrappers with fewer solid helpers.
+3. Moved Adobe Reader inventory beside the other Windows helpers.
+4. Fixed ISO upgrade automatic variable misuse and quality update reboot exit codes.
+
+### Removed
+
+1. One line Defender, winget upgrade and VM Platform wrappers.
+2. Batch DNS flush and Winsock helpers (replaced by PowerShell).
+3. The 64 bit relaunch snippet file (pattern lives inside the scripts that need it).
+
 ## Version 0.1.0 (1 Nov 2026)
 
 ### Added
 
 1. First public draft of the IT admin toolkit.
-2. Windows helpers moved from the Intune home lab draft (device info, Winsock, winget, Defender signatures, local lab user, scan share, 64 bit snippet, OS update, Virtual Machine Platform).
-3. Extra Windows helpers for BitLocker status, installed app export, Defender real time checks, Office Click to Run info and ISO based upgrades.
-4. Network helpers for DNS flush and public endpoint checks.
-5. Acronis Cyber Protect Cloud samples that read credentials from environment variables only.
-6. Sanitised monitoring, RMM and security policy JSON shapes with placeholder resource ids.
-7. Light Office and Adobe Reader inventory helpers.
-8. Short documentation habits note and a generic Edge allow list sample.
+2. Windows helpers moved from the Intune home lab draft.
+3. Acronis Cyber Protect Cloud samples that read credentials from environment variables only.
+4. Sanitised monitoring, RMM and security policy JSON shapes with placeholder resource ids.

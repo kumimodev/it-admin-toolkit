@@ -2,15 +2,14 @@
 
 # it-admin-toolkit
 
-Small Windows, network and Acronis Cyber Protect Cloud helpers for a personal IT admin lab. Use these beside the companion `intune-home-lab` repository when you want everyday tools that are not tied to Autopilot or Intune packaging.
+Windows, network and Acronis Cyber Protect Cloud helpers for a personal IT admin lab. Use these beside the companion `intune-home-lab` repository when you want everyday tools that are not tied to Autopilot or Intune packaging.
 
 ## What is in the folders
 
-1. `windows/` inventory, Defender checks, BitLocker status, winget, local lab user, scan share, OS update and ISO upgrade helpers.
-2. `network/` DNS flush, Winsock reset and quick connectivity checks.
+1. `windows/` inventory, Defender checks, BitLocker status, winget install, local lab user, scan share, quality updates and ISO upgrade helpers.
+2. `network/` Winsock reset and DNS or HTTPS connectivity checks.
 3. `acronis/` API token and agent list samples plus sanitised policy JSON shapes.
-4. `office/` light Adobe Reader and Microsoft 365 Apps inventory notes.
-5. `docs/` documentation habits and a tiny Edge allow list sample with public Microsoft hosts only.
+4. `docs/` documentation habits and a tiny Edge allow list sample with public Microsoft hosts only.
 
 ## Safety
 

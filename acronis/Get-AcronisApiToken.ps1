@@ -6,11 +6,13 @@
 .DESCRIPTION
   Reads ACRONIS_DATA_CENTER, ACRONIS_CLIENT_ID and ACRONIS_CLIENT_SECRET from the environment.
   Never hard code a client secret or a live tenant URL in a script you publish.
-  Example data centre host placeholder: https://eu2-cloud.acronis.com
+  Returns the access token string. Does not write the token to disk.
 
-.NOTES
-  Create an API client in the Acronis management console under Settings > API clients.
-  Scope the client to the least privilege your automation needs.
+.EXAMPLE
+  $env:ACRONIS_DATA_CENTER = 'https://YOUR-DATACENTER.acronis.com'
+  $env:ACRONIS_CLIENT_ID = '<YourApiClientId>'
+  $env:ACRONIS_CLIENT_SECRET = [Environment]::GetEnvironmentVariable('ACRONIS_CLIENT_SECRET')
+  $token = .\Get-AcronisApiToken.ps1
 #>
 [CmdletBinding()]
 param()
@@ -34,11 +36,16 @@ $body = @{
     client_secret = $clientSecret
 }
 
-$response = Invoke-RestMethod -Method Post -Uri $tokenUri -Body $body -ContentType 'application/x-www-form-urlencoded'
+try {
+    $response = Invoke-RestMethod -Method Post -Uri $tokenUri -Body $body -ContentType 'application/x-www-form-urlencoded'
+}
+catch {
+    throw "Token request failed: $($_.Exception.Message)"
+}
+
 if (-not $response.access_token) {
     throw 'Token response did not include access_token.'
 }
 
-Write-Host 'Token acquired. Expires in seconds:' $response.expires_in
-# Return for piping into other helpers. Do not write the token to disk.
+Write-Verbose ("Token acquired. Expires in {0} seconds." -f $response.expires_in)
 return $response.access_token
