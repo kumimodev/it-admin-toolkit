@@ -1,0 +1,31 @@
+{
+  "comment": "Sanitised sample. Replace enabled and settings for your lab. Do not paste real tenant or resource UUIDs here.",
+  "enabled": true,
+  "name": "Monitoring sample",
+  "settings": {
+    "disk_space": {
+      "enabled": true,
+      "threshold_percent": 15
+    },
+    "memory": {
+      "enabled": true,
+      "threshold_percent": 90
+    },
+    "cpu": {
+      "enabled": false,
+      "threshold_percent": 95
+    },
+    "alerts": {
+      "email": false,
+      "console": true
+    }
+  },
+  "context": {
+    "items": [
+      {
+        "id": "00000000-0000-0000-0000-000000000001",
+        "resource_name": "lab-workstation-01"
+      }
+    ]
+  }
+}

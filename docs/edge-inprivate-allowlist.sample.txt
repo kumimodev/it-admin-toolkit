@@ -1,0 +1,10 @@
+# Sample host suffixes for an Edge InPrivate allow style policy in a lab.
+# Replace these with the services your lab actually needs. Do not paste a live corporate allow list.
+microsoft.com
+microsoftonline.com
+office.com
+office365.com
+microsoft365.com
+login.microsoftonline.com
+windows.com
+azure.com

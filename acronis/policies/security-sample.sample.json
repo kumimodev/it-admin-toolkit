@@ -1,0 +1,26 @@
+{
+  "comment": "Sanitised sample. Replace enabled and settings for your lab. Do not paste real tenant or resource UUIDs here.",
+  "enabled": true,
+  "name": "Security sample",
+  "settings": {
+    "antivirus": {
+      "enabled": true,
+      "real_time": true
+    },
+    "url_filtering": {
+      "enabled": false
+    },
+    "vulnerability_assessment": {
+      "enabled": true,
+      "schedule": "weekly"
+    }
+  },
+  "context": {
+    "items": [
+      {
+        "id": "00000000-0000-0000-0000-000000000001",
+        "resource_name": "lab-workstation-01"
+      }
+    ]
+  }
+}

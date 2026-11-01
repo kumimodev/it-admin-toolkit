@@ -1,0 +1,14 @@
+*.log
+*.csv
+.DS_Store
+Thumbs.db
+*.exe
+*.msi
+*.msp
+*.cab
+*.iso
+*.intunewin
+.env
+*.pem
+*-credentials.json
+service-account*.json
